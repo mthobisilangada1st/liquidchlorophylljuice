@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liquid Chlorophyll Juice</title>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-overlay:rgba(255,255,255,0.88);
+  --text:#111;
+  --card:rgba(255,255,255,0.75);
+  --bg-image:url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1600&auto=format&fit=crop');
+}
+body.dark{
+  --bg-overlay:rgba(10,14,10,0.85);
+  --text:#fff;
+  --card:rgba(28,28,28,0.75);
+  --bg-image:url('https://images.unsplash.com/photo-1476231682828-37e571bc172f?q=80&w=1600&auto=format&fit=crop');
+}
+body{
+  margin:0;
+  font-family:'Michroma',sans-serif;
+  background:
+    linear-gradient(var(--bg-overlay),var(--bg-overlay)),
+    var(--bg-image) center/cover fixed no-repeat;
+  color:var(--text);
+  transition:.3s;
+}
+.container{
+  padding:20px;
+  max-width:1000px;
+  margin:auto;
+  text-align:center;
+}
+h1{
+  font-size:1.8rem;
+  margin-bottom:5px;
+}
+.subtitle{
+  font-size:.9rem;
+  margin-bottom:20px;
+}
+.toggle{
+  position:fixed;
+  top:15px;
+  right:15px;
+  padding:10px 14px;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+}
+.card{
+  width:180px;
+  height:180px;
+  margin:20px auto;
+  border-radius:50%;
+  overflow:hidden;
+  box-shadow:0 6px 18px rgba(0,0,0,.2);
+  cursor:pointer;
+  transition:.3s;
+}
+.card:hover{ transform:scale(1.05); }
+.card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.order-text{ margin-top:10px; font-size:.8rem; }
+.slideshow{
+  margin:30px 0;
+  position:relative;
+  width:100%;
+  height:420px;
+  overflow:hidden;
+  border-radius:20px;
+}
+.slide{
+  position:absolute;
+  width:100%;
+  height:100%;
+  opacity:0;
+  transition:opacity 1s;
+}
+.slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.slide.active{ opacity:1; }
+.section{
+  background:var(--card);
+  padding:20px;
+  border-radius:20px;
+  margin:20px 0;
+}
+.price{
+  font-size:1.1rem;
+  margin:10px 0;
+}
+ul{
+  list-style:none;
+  padding:0;
+  columns:2;
+  text-align:left;
+}
+li{ margin:6px 0; }
+@media(max-width:600px){
+  ul{ columns:1; }
+  .slideshow{ height:180px; }
+}
+</style>
+</head>
+<body>
+<button class="toggle" onclick="toggleMode()">Toggle Mode</button>
+<div class="container">
+<h1>Liquid Chlorophyll Juice</h1>
+<div class="subtitle">Plant Based Health & Wellness</div>
+<div>Manufactured by True Organic Juices</div>
+
+<a href="https://trueorganics.life/join-us/TO40530611341" target="_blank">
+<div class="card">
+<img src="thobz.jpeg" alt="Thobile Langa">
+</div>
+</a>
+<div class="order-text">Click to order or join us</div>
+
+<div class="slideshow">
+<div class="slide active"><img src="juice1.jpeg"></div>
+<div class="slide"><img src="juice2.jpeg"></div>
+<div class="slide"><img src="juice3.jpeg"></div>
+<div class="slide"><img src="juice4.jpeg"></div>
+<div class="slide"><img src="juice2.jpeg"></div>
+</div>
+
+<div class="section">
+<h2>Prices</h2>
+<div class="price">Drops - R120</div>
+<div class="price">Juice - R60</div>
+</div>
+
+<div class="section">
+<h2>Benefits</h2>
+<ul>
+<li>Ulcer</li>
+<li>Stomach acid</li>
+<li>Bad Breath</li>
+<li>Body odour</li>
+<li>Bed wetting</li>
+<li>Pimples/acne</li>
+<li>Eczema</li>
+<li>Anemia</li>
+<li>Blood purifier</li>
+<li>Boost immune system</li>
+<li>Increase CD4 count</li>
+<li>Repairs damaged cells</li>
+<li>High cholesterol</li>
+<li>High fever</li>
+<li>Fatigue</li>
+<li>Prevents allergies</li>
+<li>Migraines</li>
+<li>Headaches</li>
+<li>Sinus</li>
+<li>Insomnia</li>
+<li>Asthma</li>
+<li>TB</li>
+<li>Kidney problems</li>
+<li>Urinary tract function</li>
+<li>Erectile dysfunction</li>
+<li>Inflammation</li>
+<li>Constipation</li>
+<li>Piles</li>
+<li>Period pains</li>
+<li>Cysts</li>
+<li>Fibroids</li>
+<li>Open sores</li>
+<li>Burns</li>
+<li>Cramps</li>
+<li>Backache</li>
+<li>Joint pains</li>
+</ul>
+</div>
+</div>
+
+<script>
+function toggleMode(){
+ document.body.classList.toggle("dark");
+}
+
+let slides=document.querySelectorAll('.slide');
+let index=0;
+setInterval(()=>{
+ slides[index].classList.remove('active');
+ index=(index+1)%slides.length;
+ slides[index].classList.add('active');
+},5000);
+</script>
+</body>
+</html>
